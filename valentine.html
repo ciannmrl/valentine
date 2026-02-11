@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ma Valentine ❤️</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #ffe6f0;
+            margin-top: 100px;
+        }
+
+        h1 {
+            color: #d63384;
+            font-size: 40px;
+        }
+
+        .buttons {
+            margin-top: 50px;
+        }
+
+        button {
+            font-size: 20px;
+            padding: 15px 30px;
+            margin: 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #yesBtn {
+            background-color: #ff4d6d;
+            color: white;
+        }
+
+        #noBtn {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        #message {
+            margin-top: 40px;
+            font-size: 30px;
+            color: #ff0066;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Veux-tu être ma Valentine ? 💖</h1>
+
+    <div class="buttons">
+        <button id="yesBtn">Oui ❤️</button>
+        <button id="noBtn">Non 😢</button>
+    </div>
+
+    <div id="message">HIHIHIHA 😍</div>
+
+    <script>
+        const yesBtn = document.getElementById("yesBtn");
+        const noBtn = document.getElementById("noBtn");
+        const message = document.getElementById("message");
+
+        let scale = 1;
+        let noSize = 1;
+
+        noBtn.addEventListener("click", function() {
+            scale += 0.3;
+            noSize -= 0.15;
+
+            yesBtn.style.transform = "scale(" + scale + ")";
+            noBtn.style.transform = "scale(" + noSize + ")";
+
+            if (noSize <= 0.2) {
+                noBtn.style.display = "none";
+            }
+        });
+
+        yesBtn.addEventListener("click", function() {
+            document.querySelector(".buttons").style.display = "none";
+            message.style.display = "block";
+        });
+    </script>
+
+</body>
+</html>
